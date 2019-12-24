@@ -1,0 +1,16 @@
+{% extends 'post/base.html' %}
+
+{% block content %}
+    <div class="row">
+    <div class="col-md-8 offset-md-2">
+    <form action="{% url 'track' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="track_number_input">Tracking number</label>
+            <input type="text" name="track_number" class="form-control" id="track_number_input" required placeholder="Тра та та хуе мое">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    </div>
+    </div>
+{% endblock %}

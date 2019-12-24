@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+from post.views import IndexView
+from post.views import TrackView, TrackResultView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', IndexView.as_view(), name='index'),
+    path('track', TrackView.as_view(), name='track'),
+    url(r'^track/(?P<pk>\d+)$', TrackResultView.as_view(), name='track_result'),
 ]
