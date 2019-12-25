@@ -18,10 +18,15 @@ from django.urls import path
 from django.conf.urls import url
 from post.views import IndexView
 from post.views import TrackView, TrackResultView
+from post.views import OperatorView
+from post.views import LoginView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
     path('track', TrackView.as_view(), name='track'),
+    path('operator', OperatorView.as_view(), name='operator'),
+    path('login', LoginView.as_view(), name='login'),
+    path('logout', LogoutView.as_view(), name='logout'),
     url(r'^track/(?P<pk>\d+)$', TrackResultView.as_view(), name='track_result'),
 ]
