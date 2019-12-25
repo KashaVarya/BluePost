@@ -1,6 +1,6 @@
 from django import http
 from django.views.generic import TemplateView, RedirectView
-from django.contrib.auth import authenticate, logout
+from django.contrib.auth import authenticate, login, logout
 
 
 class LoginView(TemplateView):
@@ -11,11 +11,13 @@ class LoginView(TemplateView):
         return context
 
     def post(self, request, *args, **kwargs):
-        login = request.POST.get('login')
-        password = request.POST.get('password')
-        user = authenticate(username=login, password=password)
+        user = authenticate(
+            username=request.POST.get('login'),
+            password=request.POST.get('password')
+        )
 
         if user is not None:
+            login(request, user)
             return http.HttpResponseRedirect('/operator')
         else:
             return http.HttpResponseRedirect('/login')

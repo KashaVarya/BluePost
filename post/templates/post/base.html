@@ -15,10 +15,18 @@
     <a class="navbar-brand font-weight-bold" href="/">BluePost</a>
 
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href={% url 'login' %}>Operator Login</a>
-            <a class="nav-link" href={% url 'logout' %}>Logout</a>
-        </li>
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href={% url 'operator' %}>Operator area</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href={% url 'logout' %}>Logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href={% url 'login' %}>Operator Login</a>
+            </li>
+        {% endif %}
     </ul>
 </nav>
 
