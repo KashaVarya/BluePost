@@ -4,3 +4,4 @@ from .track import TrackResultView
 from .operator import OperatorView
 from .login import LoginView
 from .login import LogoutView
+from .package import NewPackageView, EditPackageView

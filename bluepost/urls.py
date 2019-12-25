@@ -20,6 +20,7 @@ from post.views import IndexView
 from post.views import TrackView, TrackResultView
 from post.views import OperatorView
 from post.views import LoginView, LogoutView
+from post.views import NewPackageView, EditPackageView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +30,6 @@ urlpatterns = [
     path('login', LoginView.as_view(), name='login'),
     path('logout', LogoutView.as_view(), name='logout'),
     url(r'^track/(?P<pk>\d+)$', TrackResultView.as_view(), name='track_result'),
+    path('package/new', NewPackageView.as_view(), name='new_package'),
+    url(r'^package/edit/(?P<pk>\d+)$', EditPackageView.as_view(), name='edit_package'),
 ]
