@@ -33,4 +33,5 @@ class TrackResultView(DetailView):
         for k, v in context['package_attr'].items():
             context['package'][k.title().replace('_', ' ')] = v
 
+        context['package']['Status'] = self.object.get_status_display()
         return context
