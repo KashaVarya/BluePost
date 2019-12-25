@@ -10,7 +10,7 @@ def create_sample_package(apps, schema_editor):
         id=42,
         sender_name="Ktulhu",
         receiver_name="H. P. Lovecraft",
-        tracking_number="fhtagn",
+        tracking_number="123",
         address_from="R'lyeh",
         address_to="Providence, Rhode Island, U.S.",
         status='TR',
