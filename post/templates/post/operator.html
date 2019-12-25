@@ -3,7 +3,7 @@
 {% block content %}
     <div class="row">
         <div class="col-md-4 offset-md-1">
-            <a href="/" class="btn btn-primary">New package info</a>
+            <a href="{% url 'new_package' %}" class="btn btn-primary">New package info</a>
         </div>
         <div class="col-md-4 offset-md-1">
             <form action="{% url 'operator' %}" method="post">
