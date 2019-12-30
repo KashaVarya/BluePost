@@ -15,7 +15,10 @@ class TrackView(TemplateView):
         return context
 
     def post(self, request, *args, **kwargs):
-        package = Package.objects.filter(tracking_number=request.POST.get('tracking_number')).first()
+        package = Package.objects.filter(
+            tracking_number=request.POST.get('tracking_number'),
+            receiver_name=request.POST.get('receiver_name'),
+        ).first()
         if not package:
             raise Http404
         return redirect('track_result', package.pk)

@@ -6,8 +6,10 @@
     <form action="{% url 'track' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
+            <label for="receiver_name_input">Receiver name</label>
+            <input type="text" name="receiver_name" class="form-control mb-3" id="receiver_name_input" required placeholder="Khokhlova">
             <label for="tracking_number_input">Tracking number</label>
-            <input type="text" name="tracking_number" class="form-control" id="tracking_number_input" required placeholder="UA12890147641178">
+            <input type="text" name="tracking_number" class="form-control mb-3" id="tracking_number_input" required placeholder="UA12890147641178">
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
